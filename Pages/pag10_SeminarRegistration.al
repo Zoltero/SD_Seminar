@@ -136,16 +136,16 @@ page 50110 "CSD Seminar Registration"
                 {
                     Caption = 'Co&mments';
                     Image = Comment;
-                    RunObject = Page "CSD Seminar Comment Sheet";
-                    //RunPageLink = "No." = Field (Code);
-                    RunPageView = where ("Table Name" = const ("Seminar Registration"));
+                    RunObject = Page 50106;
+                    RunPageLink = "No." = Field ("No.");
+                    RunPageView = where ("Table Name" = const("Seminar Registration"));
                 }
                 action("&Charges")
                 {
                     Caption = '&Charges';
                     Image = Costs;
-                    RunObject = Page "CSD Seminar Charges";
-                    // RunPageLink = "Document No." = Field ("No.");
+                    RunObject = Page 50124;
+                    RunPageLink = "Document No." = Field ("No.");
                 }
             }
         }
@@ -161,6 +161,20 @@ page 50110 "CSD Seminar Registration"
                 ShortcutKey = F9;
                 RunObject = codeunit "CSD Seminar-Post (Yes/No)";
             }
+            action("&Print")
+            {
+                Caption = '&Print';
+                Image = Print;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                trigger OnAction();
+                var
+                    SeminarReportSelection : Record "CSD Seminar Report Selections";
+                begin
+                    SeminarReportSelection.PrintReportSelection(SeminarReportSelection.Usage::Registration,Rec);
+                end;
+            }            
         }
     }
 }
