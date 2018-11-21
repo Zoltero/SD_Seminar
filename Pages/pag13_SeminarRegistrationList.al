@@ -67,7 +67,7 @@ page 50113 "CSD Seminar Registration List"
                 {
                     Caption = 'Co&mments';
                     Image = Comment;
-                    RunObject = Page 50106;
+                    RunObject = Page "CSD Seminar Comment Sheet";
                     RunPageLink = "No."=Field("No.");
                     RunPageView = where("Table Name"=Const("Seminar Registration"));
                 }
@@ -75,7 +75,7 @@ page 50113 "CSD Seminar Registration List"
                 {
                     Caption = '&Charges';
                     Image = Costs;
-                    RunObject = Page 50124;
+                    RunObject = Page "CSD Seminar Charges";
                     RunPageLink = "Document No."=Field("No.");
                 }
                 action("&Post")
