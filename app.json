@@ -16,6 +16,7 @@
   "platform": "13.0.0.0",
   "application": "13.0.0.0",
   "features": ["TranslationFile"],
+  "showMyCode": true,
   "idRange": {
     "from": 50100,
     "to": 50149
